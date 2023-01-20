@@ -1,0 +1,106 @@
+<?php //f84c552d0b694e3fce7bb442ed185855
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\ParserResult' => [
+            '_sqlExecutor' => [
+                $o[1],
+            ],
+            '_resultSetMapping' => [
+                $o[2],
+            ],
+        ],
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            '_sqlStatements' => [
+                1 => 'SELECT c0_.id AS id_0, c0_.title AS title_1, c0_.description AS description_2, c0_.created_at AS created_at_3, c0_.spotlighted AS spotlighted_4, c0_.count_visit AS count_visit_5, c0_.last_visit AS last_visit_6, p1_.id AS id_7, p1_.file_name AS file_name_8, p1_.file_size AS file_size_9, c0_.first_picture_id AS first_picture_id_10, p1_.cake_id AS cake_id_11 FROM cake c0_ LEFT JOIN picture p1_ ON c0_.first_picture_id = p1_.id ORDER BY c0_.created_at DESC LIMIT 12',
+            ],
+        ],
+        'stdClass' => [
+            'aliasMap' => [
+                2 => [
+                    'c' => 'App\\Entity\\Cake',
+                    'p' => 'App\\Entity\\Picture',
+                ],
+            ],
+            'relationMap' => [
+                2 => [
+                    'p' => 'firstPicture',
+                ],
+            ],
+            'parentAliasMap' => [
+                2 => [
+                    'p' => 'c',
+                ],
+            ],
+            'fieldMappings' => [
+                2 => [
+                    'id_0' => 'id',
+                    'title_1' => 'title',
+                    'description_2' => 'description',
+                    'created_at_3' => 'createdAt',
+                    'spotlighted_4' => 'spotlighted',
+                    'count_visit_5' => 'countVisit',
+                    'last_visit_6' => 'lastVisit',
+                    'id_7' => 'id',
+                    'file_name_8' => 'fileName',
+                    'file_size_9' => 'fileSize',
+                ],
+            ],
+            'typeMappings' => [
+                2 => [
+                    'first_picture_id_10' => 'integer',
+                    'cake_id_11' => 'integer',
+                ],
+            ],
+            'entityMappings' => [
+                2 => [
+                    'c' => null,
+                ],
+            ],
+            'metaMappings' => [
+                2 => [
+                    'first_picture_id_10' => 'first_picture_id',
+                    'cake_id_11' => 'cake_id',
+                ],
+            ],
+            'columnOwnerMap' => [
+                2 => [
+                    'id_0' => 'c',
+                    'title_1' => 'c',
+                    'description_2' => 'c',
+                    'created_at_3' => 'c',
+                    'spotlighted_4' => 'c',
+                    'count_visit_5' => 'c',
+                    'last_visit_6' => 'c',
+                    'id_7' => 'p',
+                    'file_name_8' => 'p',
+                    'file_size_9' => 'p',
+                    'first_picture_id_10' => 'c',
+                    'cake_id_11' => 'p',
+                ],
+            ],
+            'declaringClasses' => [
+                2 => [
+                    'id_0' => 'App\\Entity\\Cake',
+                    'title_1' => 'App\\Entity\\Cake',
+                    'description_2' => 'App\\Entity\\Cake',
+                    'created_at_3' => 'App\\Entity\\Cake',
+                    'spotlighted_4' => 'App\\Entity\\Cake',
+                    'count_visit_5' => 'App\\Entity\\Cake',
+                    'last_visit_6' => 'App\\Entity\\Cake',
+                    'id_7' => 'App\\Entity\\Picture',
+                    'file_name_8' => 'App\\Entity\\Picture',
+                    'file_size_9' => 'App\\Entity\\Picture',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

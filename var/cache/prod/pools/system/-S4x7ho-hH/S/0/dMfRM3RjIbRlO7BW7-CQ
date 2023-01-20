@@ -1,0 +1,74 @@
+<?php //App.DataModel.UserExist
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        (($f = &\Symfony\Component\VarExporter\Internal\Registry::$factories)['Symfony\\Component\\Validator\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::f('Symfony\\Component\\Validator\\Mapping\\ClassMetadata'))(),
+        ($f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::f('Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'))(),
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['App\\Validator\\EmailExist'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('App\\Validator\\EmailExist')),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\NotBlank'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\NotBlank')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\DataModel\\UserExist',
+                'email',
+            ],
+            'defaultGroup' => [
+                'UserExist',
+            ],
+            'members' => [
+                [
+                    'email' => [
+                        $o[1],
+                    ],
+                ],
+            ],
+            'properties' => [
+                [
+                    'email' => $o[1],
+                ],
+            ],
+            'constraints' => [
+                1 => [
+                    $o[2],
+                    $o[3],
+                ],
+            ],
+            'constraintsByGroup' => [
+                1 => [
+                    'Default' => [
+                        $o[2],
+                        $o[3],
+                    ],
+                    'UserExist' => [
+                        $o[2],
+                        $o[3],
+                    ],
+                ],
+            ],
+            'class' => [
+                1 => 'App\\DataModel\\UserExist',
+            ],
+            'property' => [
+                1 => 'email',
+            ],
+            'groups' => [
+                2 => [
+                    'Default',
+                    'UserExist',
+                ],
+                [
+                    'Default',
+                    'UserExist',
+                ],
+            ],
+            'message' => [
+                2 => 'L\'adresse email "{{ value }}" ne correspond à aucun compte utilisateur',
+                'Veuillez renseignez une adresse email',
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];
