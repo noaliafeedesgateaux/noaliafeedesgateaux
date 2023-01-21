@@ -22,7 +22,7 @@ if(document.querySelector('.carousel')) {
     centerMode: true,
     centerPadding: '31%',
     slidesToShow: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     pauseOnFocus: true,
     pauseOnHover: true,
@@ -47,6 +47,7 @@ if(document.querySelector('.carousel')) {
     ]
   });
 
+
   /*stop autoplay quand on ouvre image show*/
   document.querySelector('.carousel').addEventListener(ImageShow.showOpen, function(e) {
     $('.carousel').slick('slickPause');
@@ -64,6 +65,23 @@ if(document.querySelector('.carousel')) {
     });
   }
 }
+
+// POUR EVITER BUG SUR LE PASSAGE AU 1ER ITEM  //
+ // avant le changement qui fait revenir le carousel au premier item, on ajoute une classe custom pour éviter le bug d'animation
+ $('.carousel').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+  //si on va arriver au 1er item du carousel
+  if(nextSlide === 0) {
+    document.querySelector('.slick-cloned:nth-child('+ (slick.slideCount + 3).toString() + ')').classList.add('slick-custom-center');
+  }
+});
+// après le changement on supprime la classe custom
+$('.carousel').on('afterChange', function(event, slick, currentSlide){
+  //si on est sur le 1er item du carousel
+  if(currentSlide === 0) {
+    document.querySelector('.slick-cloned:nth-child('+ (slick.slideCount + 3).toString() + ')').classList.remove('slick-custom-center');
+  }
+});
+
 
 
 

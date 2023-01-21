@@ -2,6 +2,8 @@ import { myFetchPost } from "../functions/api.js";
 
 export class OrderSubmit {
 
+    static timeout = 30000;
+
     /** @type {HTMLFormElement} */
     #form;
     /** @type {HTMLInputElement} */
@@ -10,6 +12,8 @@ export class OrderSubmit {
     #flash;
     /** @type {string} */
     #entrypoint;
+    /** @type {number} */
+    #startingTime;
     
     /**
      * 
@@ -22,6 +26,7 @@ export class OrderSubmit {
         this.#form = form;
         this.#entrypoint = this.#form.dataset.entrypoint;
         this.#input = input;
+        this.#startingTime = Date.now();
         if(this.#form.querySelector('[type=submit]').classList.contains('enabled')) {
             this.#submit(this.#prepareData());
         }
@@ -34,9 +39,19 @@ export class OrderSubmit {
     async #submit(data) {
         this.#form.querySelector('[type=submit]').classList.add('loading');
         this.#form.querySelector('[type=submit]').classList.remove('enabled');
-        const success = await myFetchPost(this.#entrypoint, data);
-        this.#form.querySelector('[type=submit]').classList.remove('loading');
-        this.#addFlash(success);
+        try {
+            const success = await myFetchPost(this.#entrypoint, data);
+            this.#form.querySelector('[type=submit]').classList.remove('loading');
+            this.#addFlash(success);
+        } catch(e) {
+            //RETRY
+            if(Date.now() < (this.#startingTime + OrderSubmit.timeout)) {
+                this.#submit(data);
+            } else {  //TIMEOUT
+                this.#form.querySelector('[type=submit]').classList.remove('loading');
+                this.#addFlash(false);
+            }
+        }
     }
 
     #addFlash(success) {
@@ -48,7 +63,10 @@ export class OrderSubmit {
         } else {
           this.#flash.classList.add('failure');
           this.#flash.classList.remove('success');
-          this.#flash.querySelector('.submit-alert-label').innerText = 'Suite à un incident technique, votre demande n\'a pas pu être envoyée. Actualisez la page et réessayez.';
+          this.#flash.querySelector('.submit-alert-label').innerText = 'Suite à un incident technique, votre demande n\'a pas pu être envoyée. Réessayez dans quelques instants.';
+          setTimeout(() => {
+            this.#form.querySelector('[type=submit]').classList.add('enabled');
+          }, 4000);
         }
         this.#flash.classList.add('visible');
         setTimeout(() => {

@@ -29,11 +29,23 @@ class HomeController extends AbstractController
         $this->visitCounter->count('home');
 
         $cakesSpotlighted = $this->cakeRepository->findAllSpotlighted();
-        //si moins de 3 cakes, le carousel ne fonctionnera pas, donc:
-        while(count($cakesSpotlighted) < 3 && count($cakesSpotlighted) > 0)
-        {
-            $cakesSpotlighted[] = $cakesSpotlighted[0];
+
+        //entre 1 et 3 cakes, le carousel ne fonctionnera pas bien, donc:
+        switch (count($cakesSpotlighted)) {
+            case 1:
+                $cakesSpotlighted[] = $cakesSpotlighted[0];
+                $cakesSpotlighted[] = $cakesSpotlighted[0];
+                $cakesSpotlighted[] = $cakesSpotlighted[0];
+                break;
+                case 2:
+                    $cakesSpotlighted[] = $cakesSpotlighted[0];
+                    $cakesSpotlighted[] = $cakesSpotlighted[1];
+                    break;
+                    case 3:
+                        $cakesSpotlighted[] = $cakesSpotlighted[1];
+                        break;
         }
+
         return $this->render('home/index.html.twig', [
             'current_menu' => 'home',
             'cakes_spotlighted' => $cakesSpotlighted
