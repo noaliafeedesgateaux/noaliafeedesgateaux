@@ -23,7 +23,7 @@ class UserFixtures extends Fixture
         $admin->setRoles(['ROLE_ADMIN'])
                 ->setStatus('administrator')
                 ->setEmail('exemple@email.fr')
-                ->setFacebook('https://www.facebook.com/people/Nadia-f%C3%A9e-des-g%C3%A2teaux/100040747152712/')
+                ->setFacebook('https://www.facebook.com/')
                 ->setPhone('07 53 31 15 18')
                 ->setLocation(
                     (new Location)->setCity('Cannes')
@@ -31,7 +31,7 @@ class UserFixtures extends Fixture
                                     ->setX('1023559.08')
                                     ->setY('6281139.85')
                 )
-                ->setPassword($this->hasher->hashPassword($admin, 'Noalia'))
+                ->setPassword($this->hasher->hashPassword($admin, 'password'))
                 ;
         $manager->persist($admin);
 
@@ -47,7 +47,7 @@ class UserFixtures extends Fixture
                                     ->setX('1')
                                     ->setY('1')
                 )
-                ->setPassword($this->hasher->hashPassword($me, 'Ibai64600'))
+                ->setPassword($this->hasher->hashPassword($me, 'password'))
                 ;
         $manager->persist($me);
 
