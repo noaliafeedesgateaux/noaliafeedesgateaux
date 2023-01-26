@@ -4,12 +4,7 @@
 * Autoprefixer: v10.4.7
 * Browsers: last 4 version
 */
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
+
 
 
 :root {
@@ -1342,12 +1337,21 @@ body.frozen {
     width: calc(100vw - 30px);
     max-width: 600px;
     position: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 .image-show-body {
     margin: 0 0 20px;
     padding: 0 20px;
     overflow-x: hidden;
     overflow-y: auto;
+    word-break: break-word;
 }
 .image-show.visible {
     -webkit-animation: imageShowAppears .3s both;
@@ -1368,6 +1372,9 @@ body.frozen {
         -ms-flex-align: center;
             align-items: center;
     padding: 20px 54px;
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
 }
 
 .image-show-title {
@@ -1547,6 +1554,14 @@ body.frozen {
     font-size: 1.1rem;
     line-height: 1.6;
     color: var(--white);
+    background: -o-linear-gradient(left, rgba(77, 61, 61, 0.4), var(--darkrose)),
+                -o-linear-gradient(left, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+                url(img/banner.jpg) top center / cover no-repeat
+                ;
+    background: -o-linear-gradient(left, rgba(77, 61, 61, 0.4), var(--darkrose)),
+                -o-linear-gradient(left, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+                url(img/banner.jpg) top center / cover no-repeat
+                ;
     background: -o-linear-gradient(left, rgba(77, 61, 61, 0.4), var(--darkrose)),
                 -o-linear-gradient(left, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
                 url(img/banner.jpg) top center / cover no-repeat
@@ -1876,6 +1891,12 @@ body.frozen {
     padding: 40px 20px 25px;
     font-size: 0.7rem;
     background-color: var(--darkrose);
+    background: -o-linear-gradient(left, rgba(77, 61, 61, 0.92), rgba(77, 61, 61, 0.92)),
+                url(img/banner.jpg) bottom center / cover no-repeat
+                ;
+    background: -o-linear-gradient(left, rgba(77, 61, 61, 0.92), rgba(77, 61, 61, 0.92)),
+                url(img/banner.jpg) bottom center / cover no-repeat
+                ;
     background: -o-linear-gradient(left, rgba(77, 61, 61, 0.92), rgba(77, 61, 61, 0.92)),
                 url(img/banner.jpg) bottom center / cover no-repeat
                 ;
@@ -2971,8 +2992,6 @@ body.frozen {
         height: 52%;
     }
 }
-
-
 
 
 

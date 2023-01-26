@@ -5,7 +5,6 @@
 * Browsers: last 4 version
 */
 
-
 @-webkit-keyframes disappear {
     0% {
         display: block;
@@ -1436,6 +1435,7 @@ form[name=cake].submitting [type=submit] .i-loader {
 }
 .cake-show-container p {
     font-weight: 600;
+    word-break: break-word;
 }
 .date-container {
     padding: 10px 15px;
