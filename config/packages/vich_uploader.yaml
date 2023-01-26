@@ -7,5 +7,5 @@ vich_uploader:
     mappings:
         cakes:
             uri_prefix: /img/cakes
-            upload_destination: '%kernel.project_dir%/www/img/cakes'
+            upload_destination: '%kernel.project_dir%/public/img/cakes'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

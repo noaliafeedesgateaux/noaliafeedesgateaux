@@ -5,6 +5,9 @@
         </a>
         <svg class="icon i-nav-menu js-hidden-menu-opener">
             <use xlink:href="/svg/sprite.svg#menu"></use>
+        </svg>
+        <svg class="icon i-nav-menu js-hidden-menu-closer">
+            <use xlink:href="/svg/sprite.svg#close"></use>
         </svg> 
     </div>
     <ul class="nav-group js-hidden-menu">
@@ -17,12 +20,12 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="" class="nav-link icon-left">
+            <button class="nav-link icon-left">
                 <svg class="icon i-left">
                     <use xlink:href="/svg/sprite.svg#cart_fill"></use>
                 </svg> 
                 <span class="nav-link-label js-order-button">Passer commande</span>
-            </a>
+            </button>
         </li>
         <li class="nav-social">
             <a href="{{ admin_details.facebook }}" class="social-link icon-right" title="Facebook Noalia fée des gâteaux">
